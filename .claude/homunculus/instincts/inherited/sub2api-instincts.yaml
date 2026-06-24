@@ -1,0 +1,746 @@
+# Instincts generated from https://github.com/wdaglb/sub2api
+# Generated: 2026-06-24T16:52:46.532Z
+# Version: 2.0
+# NOTE: This file supplements (does not replace) any existing curated instincts.
+# High-confidence manually curated instincts should be preserved alongside these.
+
+---
+id: sub2api-commit-length
+trigger: "when writing a commit message"
+confidence: 0.6
+domain: git
+source: repo-analysis
+source_repo: https://github.com/wdaglb/sub2api
+---
+
+# Sub2api Commit Length
+
+## Action
+
+Write moderate-length commit messages (~57 characters)
+
+## Evidence
+
+- Average commit message length: 57 chars
+- Based on 100 commits
+
+---
+id: sub2api-naming-files
+trigger: "when creating a new file"
+confidence: 0.8
+domain: code-style
+source: repo-analysis
+source_repo: https://github.com/wdaglb/sub2api
+---
+
+# Sub2api Naming Files
+
+## Action
+
+Use snake_case naming convention
+
+## Evidence
+
+- Analyzed file naming patterns in repository
+- Dominant pattern: snake_case
+
+---
+id: sub2api-import-relative
+trigger: "when importing modules"
+confidence: 0.75
+domain: code-style
+source: repo-analysis
+source_repo: https://github.com/wdaglb/sub2api
+---
+
+# Sub2api Import Relative
+
+## Action
+
+Use relative imports for project files
+
+## Evidence
+
+- Import analysis shows relative import pattern
+- Example: import { x } from '../lib/x'
+
+---
+id: sub2api-export-style
+trigger: "when exporting from a module"
+confidence: 0.7
+domain: code-style
+source: repo-analysis
+source_repo: https://github.com/wdaglb/sub2api
+---
+
+# Sub2api Export Style
+
+## Action
+
+Prefer named exports
+
+## Evidence
+
+- Export pattern analysis
+- Dominant style: named
+
+---
+id: sub2api-arch-type-based
+trigger: "when adding new code"
+confidence: 0.8
+domain: architecture
+source: repo-analysis
+source_repo: https://github.com/wdaglb/sub2api
+---
+
+# Sub2api Arch Type Based
+
+## Action
+
+Place code in the appropriate type folder (components/, services/, utils/, etc.)
+
+## Evidence
+
+- Type-based module organization detected
+- Folders: 
+
+---
+id: sub2api-test-framework
+trigger: "when writing tests"
+confidence: 0.9
+domain: testing
+source: repo-analysis
+source_repo: https://github.com/wdaglb/sub2api
+---
+
+# Sub2api Test Framework
+
+## Action
+
+Use vitest as the test framework
+
+## Evidence
+
+- Test framework detected: vitest
+- File pattern: *.spec.ts
+
+---
+id: sub2api-test-naming
+trigger: "when creating a test file"
+confidence: 0.85
+domain: testing
+source: repo-analysis
+source_repo: https://github.com/wdaglb/sub2api
+---
+
+# Sub2api Test Naming
+
+## Action
+
+Name test files using the pattern: *.spec.ts
+
+## Evidence
+
+- File pattern: *.spec.ts
+- Consistent across test files
+
+---
+id: sub2api-test-mocking
+trigger: "when mocking dependencies in tests"
+confidence: 0.75
+domain: testing
+source: repo-analysis
+source_repo: https://github.com/wdaglb/sub2api
+---
+
+# Sub2api Test Mocking
+
+## Action
+
+Use vi.mock for mocking
+
+## Evidence
+
+- Mocking pattern detected: vi.mock
+- Consistent across test files
+
+---
+id: sub2api-test-types
+trigger: "when planning tests for a feature"
+confidence: 0.7
+domain: testing
+source: repo-analysis
+source_repo: https://github.com/wdaglb/sub2api
+---
+
+# Sub2api Test Types
+
+## Action
+
+Write unit, integration tests to match project standards
+
+## Evidence
+
+- Test types detected: unit, integration
+- Coverage config: no
+
+---
+id: sub2api-workflow-database-migration
+trigger: "when modifying the database schema or adding tables"
+confidence: 0.6
+domain: workflow
+source: repo-analysis
+source_repo: https://github.com/wdaglb/sub2api
+---
+
+# Sub2api Workflow Database Migration
+
+## Action
+
+Follow the database-migration workflow:
+1. Create migration file
+2. Update schema definitions
+3. Generate/update types
+
+## Evidence
+
+- Workflow detected from commit patterns
+- Frequency: ~2x per month
+- Files: **/schema.*, migrations/*
+
+---
+id: sub2api-workflow-feature-development
+trigger: "when implementing a new feature"
+confidence: 0.8
+domain: workflow
+source: repo-analysis
+source_repo: https://github.com/wdaglb/sub2api
+---
+
+# Sub2api Workflow Feature Development
+
+## Action
+
+Follow the feature-development workflow:
+1. Add feature implementation
+2. Add tests for feature
+3. Update documentation
+
+## Evidence
+
+- Workflow detected from commit patterns
+- Frequency: ~6x per month
+- Files: frontend/src/api/admin/*, frontend/src/i18n/locales/*, frontend/src/views/admin/ops/components/*
+
+---
+id: sub2api-workflow-backend-bugfix-with-unit-tests
+trigger: "when doing backend bugfix with unit tests"
+confidence: 0.8
+domain: workflow
+source: repo-analysis
+source_repo: https://github.com/wdaglb/sub2api
+---
+
+# Sub2api Workflow Backend Bugfix With Unit Tests
+
+## Action
+
+Follow the backend-bugfix-with-unit-tests workflow:
+1. Identify and fix the bug in backend service/repository/handler code.
+2. Update or add new unit/integration tests covering the bug scenario.
+3. Commit both code and test changes together.
+
+## Evidence
+
+- Workflow detected from commit patterns
+- Frequency: ~6x per month
+- Files: backend/internal/service/*.go, backend/internal/service/*_test.go, backend/internal/repository/*.go
+
+---
+id: sub2api-workflow-backend-feature-plus-frontend-and-i18n
+trigger: "when doing backend feature plus frontend and i18n"
+confidence: 0.6
+domain: workflow
+source: repo-analysis
+source_repo: https://github.com/wdaglb/sub2api
+---
+
+# Sub2api Workflow Backend Feature Plus Frontend And I18n
+
+## Action
+
+Follow the backend-feature-plus-frontend-and-i18n workflow:
+1. Implement backend logic (service, handler, repository).
+2. Expose new or updated API endpoints.
+3. Update or add frontend components/views to consume the new API.
+4. Update frontend API client files.
+5. Update i18n translation files for new UI strings.
+6. Add or update frontend tests if needed.
+
+## Evidence
+
+- Workflow detected from commit patterns
+- Frequency: ~2x per month
+- Files: backend/internal/service/*.go, backend/internal/handler/*.go, backend/internal/repository/*.go
+
+---
+id: sub2api-workflow-schema-migration-with-ent-and-sql
+trigger: "when doing schema migration with ent and sql"
+confidence: 0.55
+domain: workflow
+source: repo-analysis
+source_repo: https://github.com/wdaglb/sub2api
+---
+
+# Sub2api Workflow Schema Migration With Ent And Sql
+
+## Action
+
+Follow the schema-migration-with-ent-and-sql workflow:
+1. Edit ent schema files (backend/ent/schema/*.go).
+2. Regenerate ent code (backend/ent/*.go, backend/ent/*/*.go, backend/ent/migrate/schema.go).
+3. Create new SQL migration file (backend/migrations/*.sql).
+4. Update backend repository/service/handler code to use new schema.
+5. Update or add integration/unit tests.
+6. Update frontend API/types if relevant.
+
+## Evidence
+
+- Workflow detected from commit patterns
+- Frequency: ~1x per month
+- Files: backend/ent/schema/*.go, backend/ent/*.go, backend/ent/*/*.go
+
+---
+id: sub2api-workflow-fix-content-type-or-error-handling-in-gateway
+trigger: "when doing fix content type or error handling in gateway"
+confidence: 0.65
+domain: workflow
+source: repo-analysis
+source_repo: https://github.com/wdaglb/sub2api
+---
+
+# Sub2api Workflow Fix Content Type Or Error Handling In Gateway
+
+## Action
+
+Follow the fix-content-type-or-error-handling-in-gateway workflow:
+1. Identify the protocol or error-handling bug.
+2. Update gateway/service/handler code to fix Content-Type or error propagation.
+3. Add or update regression/unit tests to cover the edge case.
+4. Commit code and tests together.
+
+## Evidence
+
+- Workflow detected from commit patterns
+- Frequency: ~3x per month
+- Files: backend/internal/service/gateway_*.go, backend/internal/handler/gateway_*.go, backend/internal/service/openai_gateway_*.go
+
+---
+id: sub2api-workflow-readme-or-sponsor-assets-update
+trigger: "when doing readme or sponsor assets update"
+confidence: 0.6
+domain: workflow
+source: repo-analysis
+source_repo: https://github.com/wdaglb/sub2api
+---
+
+# Sub2api Workflow Readme Or Sponsor Assets Update
+
+## Action
+
+Follow the readme-or-sponsor-assets-update workflow:
+1. Edit README.md and/or localized README files.
+2. Add, update, or remove logo images in assets/partners/logos.
+3. Commit documentation and asset changes together.
+
+## Evidence
+
+- Workflow detected from commit patterns
+- Frequency: ~2x per month
+- Files: README.md, README_CN.md, README_JA.md
+
+---
+id: sub2api-workflow-merge-pr-for-existing-bugfix-or-feature
+trigger: "when doing merge pr for existing bugfix or feature"
+confidence: 0.7
+domain: workflow
+source: repo-analysis
+source_repo: https://github.com/wdaglb/sub2api
+---
+
+# Sub2api Workflow Merge Pr For Existing Bugfix Or Feature
+
+## Action
+
+Follow the merge-pr-for-existing-bugfix-or-feature workflow:
+1. Review and approve the PR.
+2. Merge the PR into main branch.
+3. PR commit matches files and message of a previous direct commit.
+
+## Evidence
+
+- Workflow detected from commit patterns
+- Frequency: ~4x per month
+- Files: backend/internal/service/*.go, backend/internal/service/*_test.go, backend/internal/handler/*.go
+
+---
+id: sub2api-instinct-file-naming
+trigger: "When creating a new file in the codebase"
+confidence: 0.9
+domain: code-style
+source: repo-analysis
+source_repo: wdaglb/sub2api
+---
+
+# Sub2api Instinct File Naming
+
+## Action
+
+Name the file using snake_case
+
+## Evidence
+
+- Pattern in files: backend/internal/service/*.go, frontend/src/api/**/*.ts
+- Naming convention: files = snake_case
+
+---
+id: sub2api-instinct-function-naming
+trigger: "When defining a new function"
+confidence: 0.9
+domain: code-style
+source: repo-analysis
+source_repo: wdaglb/sub2api
+---
+
+# Sub2api Instinct Function Naming
+
+## Action
+
+Use camelCase for function names
+
+## Evidence
+
+- Naming convention: functions = camelCase
+- Pattern in Go code
+
+---
+id: sub2api-instinct-class-naming
+trigger: "When defining a new class or type"
+confidence: 0.9
+domain: code-style
+source: repo-analysis
+source_repo: wdaglb/sub2api
+---
+
+# Sub2api Instinct Class Naming
+
+## Action
+
+Use PascalCase for class/type names
+
+## Evidence
+
+- Naming convention: classes = PascalCase
+- Pattern in Go code
+
+---
+id: sub2api-instinct-constant-naming
+trigger: "When defining a constant"
+confidence: 0.9
+domain: code-style
+source: repo-analysis
+source_repo: wdaglb/sub2api
+---
+
+# Sub2api Instinct Constant Naming
+
+## Action
+
+Use SCREAMING_SNAKE_CASE for constant names
+
+## Evidence
+
+- Naming convention: constants = SCREAMING_SNAKE_CASE
+- Pattern in Go code
+
+---
+id: sub2api-instinct-import-style
+trigger: "When importing modules in Go or TypeScript"
+confidence: 0.8
+domain: code-style
+source: repo-analysis
+source_repo: wdaglb/sub2api
+---
+
+# Sub2api Instinct Import Style
+
+## Action
+
+Use relative import paths
+
+## Evidence
+
+- importStyle: relative
+- Pattern in codebase
+
+---
+id: sub2api-instinct-export-style
+trigger: "When exporting functions or types in TypeScript"
+confidence: 0.8
+domain: code-style
+source: repo-analysis
+source_repo: wdaglb/sub2api
+---
+
+# Sub2api Instinct Export Style
+
+## Action
+
+Use named exports
+
+## Evidence
+
+- exportStyle: named
+- Pattern in frontend/src/api/**/*.ts
+
+---
+id: sub2api-instinct-test-file-pattern
+trigger: "When adding a new test file in the frontend"
+confidence: 0.9
+domain: testing
+source: repo-analysis
+source_repo: wdaglb/sub2api
+---
+
+# Sub2api Instinct Test File Pattern
+
+## Action
+
+Name the test file with the pattern *.spec.ts
+
+## Evidence
+
+- testing.filePattern: *.spec.ts
+- Pattern in frontend/src/api/**/*.spec.ts
+
+---
+id: sub2api-instinct-test-framework
+trigger: "When writing frontend tests"
+confidence: 0.9
+domain: testing
+source: repo-analysis
+source_repo: wdaglb/sub2api
+---
+
+# Sub2api Instinct Test Framework
+
+## Action
+
+Use vitest as the test framework
+
+## Evidence
+
+- testing.framework: vitest
+- Pattern in test files
+
+---
+id: sub2api-instinct-test-mocking
+trigger: "When mocking modules in frontend tests"
+confidence: 0.9
+domain: testing
+source: repo-analysis
+source_repo: wdaglb/sub2api
+---
+
+# Sub2api Instinct Test Mocking
+
+## Action
+
+Use vi.mock for mocking
+
+## Evidence
+
+- testing.mockingStyle: vi.mock
+- Pattern in *.spec.ts files
+
+---
+id: sub2api-instinct-test-types
+trigger: "When writing tests"
+confidence: 0.8
+domain: testing
+source: repo-analysis
+source_repo: wdaglb/sub2api
+---
+
+# Sub2api Instinct Test Types
+
+## Action
+
+Include both unit and integration tests as appropriate
+
+## Evidence
+
+- testing.testTypes: unit, integration
+- Pattern in test files
+
+---
+id: sub2api-instinct-commit-prefix
+trigger: "When writing a commit message"
+confidence: 0.9
+domain: git
+source: repo-analysis
+source_repo: wdaglb/sub2api
+---
+
+# Sub2api Instinct Commit Prefix
+
+## Action
+
+Prefix the message with fix:, feat:, or chore: as appropriate
+
+## Evidence
+
+- commits.prefixes: fix, feat, chore
+- Examples: fix: force Content-Type...
+- feat(ops): 新增...
+
+---
+id: sub2api-instinct-commit-length
+trigger: "When writing a commit message"
+confidence: 0.8
+domain: git
+source: repo-analysis
+source_repo: wdaglb/sub2api
+---
+
+# Sub2api Instinct Commit Length
+
+## Action
+
+Keep the commit message concise, around 50-60 characters
+
+## Evidence
+
+- commits.averageLength: 57
+- Pattern in commit examples
+
+---
+id: sub2api-instinct-backend-bugfix-with-tests
+trigger: "When fixing a bug in backend service/repository/handler code"
+confidence: 0.95
+domain: workflow
+source: repo-analysis
+source_repo: wdaglb/sub2api
+---
+
+# Sub2api Instinct Backend Bugfix With Tests
+
+## Action
+
+Update or add unit/integration tests covering the bug scenario and commit both code and test changes together
+
+## Evidence
+
+- Workflow: backend-bugfix-with-unit-tests
+- Pattern: code and test changes in same commit
+
+---
+id: sub2api-instinct-feature-fullstack
+trigger: "When implementing a new backend feature that requires frontend and i18n updates"
+confidence: 0.9
+domain: workflow
+source: repo-analysis
+source_repo: wdaglb/sub2api
+---
+
+# Sub2api Instinct Feature Fullstack
+
+## Action
+
+Update backend, frontend, API client, i18n files, and add/update frontend tests as needed
+
+## Evidence
+
+- Workflow: backend-feature-plus-frontend-and-i18n
+- Pattern: commits touch backend, frontend, i18n
+
+---
+id: sub2api-instinct-schema-migration
+trigger: "When changing the database schema"
+confidence: 0.9
+domain: workflow
+source: repo-analysis
+source_repo: wdaglb/sub2api
+---
+
+# Sub2api Instinct Schema Migration
+
+## Action
+
+Edit ent schema, regenerate ent code, create SQL migration, update backend logic, update/add tests, and update frontend API/types if needed
+
+## Evidence
+
+- Workflow: schema-migration-with-ent-and-sql
+- Pattern: commits touch ent schema, migrations, backend, frontend/types
+
+---
+id: sub2api-instinct-fix-gateway-error
+trigger: "When fixing Content-Type or error handling in gateway/service/handler"
+confidence: 0.9
+domain: workflow
+source: repo-analysis
+source_repo: wdaglb/sub2api
+---
+
+# Sub2api Instinct Fix Gateway Error
+
+## Action
+
+Update gateway/service/handler code, add/update regression/unit tests, and commit code and tests together
+
+## Evidence
+
+- Workflow: fix-content-type-or-error-handling-in-gateway
+- Pattern: commits touch gateway_*.go, *_test.go
+
+---
+id: sub2api-instinct-update-readme-assets
+trigger: "When updating documentation or sponsor/partner logos"
+confidence: 0.8
+domain: workflow
+source: repo-analysis
+source_repo: wdaglb/sub2api
+---
+
+# Sub2api Instinct Update Readme Assets
+
+## Action
+
+Edit README files and/or update assets/partners/logos, committing both together
+
+## Evidence
+
+- Workflow: readme-or-sponsor-assets-update
+- Pattern: commits touch README.md, assets/partners/logos/*
+
+---
+id: sub2api-instinct-merge-pr
+trigger: "When merging a PR that matches a previous direct commit"
+confidence: 0.8
+domain: workflow
+source: repo-analysis
+source_repo: wdaglb/sub2api
+---
+
+# Sub2api Instinct Merge Pr
+
+## Action
+
+Review, approve, and merge the PR, ensuring commit message and files match the earlier change
+
+## Evidence
+
+- Workflow: merge-pr-for-existing-bugfix-or-feature
+- Pattern: PR commit matches previous direct commit
+
